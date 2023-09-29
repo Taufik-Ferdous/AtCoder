@@ -1,0 +1,26 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+#define ll long long
+#define all(x) x.begin(),x.end()
+
+void solve(){
+    string s; cin>>s;
+    map<char, ll> v;
+    for(auto i: s) v[i]++;
+    for(auto i: v){
+        if (i.second%2!=0){
+            cout<<"No" <<endl;
+            return;
+        }
+    }
+    cout<<"Yes" <<endl;
+}
+
+int main(){
+    ll t=1;
+    // cin>>t;
+    while(t--)
+        solve();
+    
+}
