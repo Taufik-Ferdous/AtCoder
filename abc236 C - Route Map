@@ -1,0 +1,54 @@
+/**
+ *    Author: lulu (Tasmir_)
+ *    Created: 03-November-2023  09:02:39
+**/
+#include<bits/stdc++.h>
+using namespace std;
+
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+#define ll long long
+
+#define fo(i,n) for(ll i=0; i<n; ++i)
+#define Fo(i,k,n) for(ll i=k;k<n?i<n:i>=n;i<n?++i:--i)
+#define deb(x) cout<<#x <<"=" <<x <<endl
+#define deb2(x,y) cout<<#x <<"=" <<x <<" " <<#y <<"=" <<y <<endl
+#define pb push_back
+#define mp make_pair
+#define F first
+#define S second
+#define all(x) x.begin(), x.end()
+#define allr(x) x.rbegin(), x.rend()
+#define endl "\n"
+
+typedef pair<ll,ll>      pl;
+typedef vector<ll>       vl;
+
+const int mod = 1e9+7;
+const ll N = 1e7+10;
+//====================================
+
+void solve(){
+    ll a, b; cin>>a >>b;
+    vector<string> v1(a), v2(b);
+    for(auto &i: v1) cin>>i;
+    for(auto &i: v2) cin>>i;
+
+    for(ll i=0, j=0; i<a; ++i){
+        if(v1[i]==v2[j]){
+            cout<<"Yes" <<endl;
+            ++j;
+        }
+        else cout<<"No" <<endl;
+    }
+}
+
+
+int main(){
+    optimize();
+
+    ll t=1;
+    // cin>>t;
+    while(t--)
+        solve();
+}
