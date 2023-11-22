@@ -1,0 +1,57 @@
+/**
+ *    Author: lulu (Tasmir_)
+ *    Created: 21-November-2023  12:51:45
+**/
+#include<bits/stdc++.h>
+using namespace std;
+
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+#define ll long long
+
+#define fo(i,n) for(ll i=0; i<n; ++i)
+#define Fo(i,k,n) for(ll i=k;k<n?i<n:i>=n;i<n?++i:--i)
+#define deb(x) cout<<#x <<"=" <<x <<endl
+#define deb2(x,y) cout<<#x <<"=" <<x <<" " <<#y <<"=" <<y <<endl
+#define pb push_back
+#define mp make_pair
+#define F first
+#define S second
+#define all(x) x.begin(), x.end()
+#define allr(x) x.rbegin(), x.rend()
+#define endl "\n"
+
+typedef pair<ll,ll>      pl;
+typedef vector<ll>       vl;
+
+const int mod = 1e9+7;
+const ll N = 1e7+10;
+//====================================
+
+void solve(){
+    string s; cin>>s;
+    string dum;
+    ll len=s.size();
+    for(ll i=0; i<len; ++i){
+        if(i==0){
+            dum.pb(s[i]);
+            continue;
+        }
+        else if(s[i]=='T' && dum.length() && dum[dum.length()-1]=='S'){
+            dum.pop_back();
+
+        }
+        else dum.pb(s[i]);
+    }
+    cout<<dum.length() <<endl;
+}
+
+
+int main(){
+    optimize();
+
+    ll t=1;
+    // cin>>t;
+    while(t--)
+        solve();
+}
