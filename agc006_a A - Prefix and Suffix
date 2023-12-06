@@ -1,6 +1,6 @@
 /**
  *    Author: lulu (Tasmir_)
- *    Created: 06-December-2023  12:48:07
+ *    Created: 06-December-2023  09:13:15
 **/
 #include<bits/stdc++.h>
 using namespace std;
@@ -28,14 +28,30 @@ const int mod = 1e9+7;
 const ll N = 1e7+10;
 //====================================
 
+ll n;
+string a, b;
+
+bool same(ll i){
+    for(ll dum=i, lim=0; dum<n; ++dum, ++lim){
+        if(a[dum]!=b[lim]) return 0;
+    }
+    return 1;
+}
+
 void solve(){
-    ll n; cin>>n;
-    if(n<=4){
-        cout<<0 <<' ' <<n <<endl;
+    cin>>n;
+    cin>>a >>b;
+    ll count=0, len=2*n;
+
+    for(ll i=0; i<n; ++i){
+        bool f = same(i);
+        if(f){
+            len =  n+i;
+            break;
+        }
     }
-    else{
-        cout<<1 <<' ' <<n-1 <<endl;
-    }
+    
+    cout<<len <<endl;
 }
 
 
@@ -43,7 +59,7 @@ int main(){
     optimize();
 
     ll t=1;
-    cin>>t;
+    // cin>>t;
     while(t--)
         solve();
 }
