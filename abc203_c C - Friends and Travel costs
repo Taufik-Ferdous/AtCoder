@@ -1,0 +1,66 @@
+/**
+ *    Author: lulu (Tasmir_)
+ *    Created: 10-December-2023  09:20:45
+**/
+#include<bits/stdc++.h>
+using namespace std;
+
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+#define ll long long
+
+#define fo(i,n) for(ll i=0; i<n; ++i)
+#define Fo(i,k,n) for(ll i=k;k<n?i<n:i>=n;i<n?++i:--i)
+#define deb(x) cout<<#x <<"=" <<x <<endl
+#define deb2(x,y) cout<<#x <<"=" <<x <<" " <<#y <<"=" <<y <<endl
+#define pb push_back
+#define mp make_pair
+#define F first
+#define S second
+#define all(x) x.begin(), x.end()
+#define allr(x) x.rbegin(), x.rend()
+#define endl "\n"
+
+typedef pair<ll,ll>      pl;
+typedef vector<ll>       vl;
+
+const int mod = 1e9+7;
+const ll N = 1e7+10;
+//====================================
+
+void solve(){
+    ll f, m; cin>>f >>m;
+
+    vector<pair<ll, ll>> v;
+    for(ll i=0; i<f; ++i){
+        ll a, b; cin>>a >>b;
+        v.pb({a,b});
+    }
+    sort(all(v));
+    // for(auto i: v) cout<<i.F <<'-' <<i.S <<' ' <<endl;
+    ll ans=0;
+    ll p=0;
+    while(m>0){
+        ans+=m;
+        m=0;
+        for(; p<f; ++p){
+            if(v[p].F<=ans){
+                m+=v[p].S;
+            }
+            else{
+                break;
+            }
+        }
+    }
+    cout<<ans <<endl;
+}
+
+
+int main(){
+    optimize();
+
+    ll t=1;
+    // cin>>t;
+    while(t--)
+        solve();
+}
