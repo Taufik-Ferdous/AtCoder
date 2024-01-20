@@ -1,0 +1,50 @@
+/**
+ *    Author: lulu (Tasmir_)
+ *    Created: 20-January-2024  21:53:16
+**/
+#include<bits/stdc++.h>
+using namespace std;
+
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+#define ll long long
+
+//====================================
+
+void solve(){
+	ll n; cin>>n;
+	ll front=-1;
+
+	//vector to store the input as the output says
+	vector<ll> v(n+1);
+
+	for(ll i=1; i<=n; ++i){
+		ll value; cin>>value;
+
+		//the 1st value as said in the problem statement
+		if(value == -1){
+			front = i;
+		} else{
+			//storing the value as the statement
+			v[value]=i;
+		}
+	}
+
+	cout<<front;
+	for(ll i=1; i<n; ++i){
+		//taking the front as the starting value to link all the others
+		front = v[front];
+		cout<<' ' <<front;
+	}
+	cout<<'\n';
+}
+
+
+int main(){
+	optimize();
+
+	ll t=1;
+	// cin>>t;
+	while(t--)
+		solve();
+}
