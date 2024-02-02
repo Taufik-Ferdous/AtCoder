@@ -1,0 +1,35 @@
+/**
+ *    Author: lulu (Tasmir_)
+ *    Created: 02-February-2024  11:39:28
+**/
+#include<bits/stdc++.h>
+using namespace std;
+
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+#define ll long long
+
+//====================================
+
+void solve(){
+    ll n; cin>>n;
+    vector<ll> v(n);
+    for(auto &i: v) cin>>i;
+
+    ll ans=1, min=v[0];
+    for(ll i=1; i<n; ++i){
+        if(v[i]<=min) ++ans;
+        if(v[i]<min) min=v[i];
+    }
+    cout<<ans <<'\n';
+}
+
+
+int main(){
+    optimize();
+
+    ll t=1;
+    // cin>>t;
+    while(t--)
+        solve();
+}
