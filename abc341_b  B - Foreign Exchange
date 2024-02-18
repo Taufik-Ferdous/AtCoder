@@ -1,0 +1,36 @@
+/**
+ *    Author: lulu (Tasmir_)
+ *    Created: 18-February-2024  15:39:40
+**/
+#include<bits/stdc++.h>
+using namespace std;
+
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+#define ll long long
+
+//====================================
+
+void solve(){
+    ll n; cin>>n;
+    vector<ll> a(n);
+    for(auto &i: a) cin>>i;
+
+    vector<pair<ll, ll>> vp(n-1);
+    for(auto &i: vp) cin>>i.first >>i.second;
+
+    for(ll i=0; i<n-1; ++i)
+        a[i+1] += (a[i]/vp[i].first)*vp[i].second;
+    
+    cout<<a[n-1] <<'\n';
+}
+
+
+int main(){
+    optimize();
+
+    ll t=1;
+    // cin>>t;
+    while(t--)
+        solve();
+}
