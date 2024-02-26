@@ -1,0 +1,45 @@
+/**
+ *    Author: lulu (Tasmir_)
+ *    Created: 26-February-2024  16:23:43
+**/
+#include<bits/stdc++.h>
+using namespace std;
+
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+#define ll long long
+
+//====================================
+
+void solve(){
+    ll n; cin>>n;
+    ll time=0, a=0, b=0;
+    bool f=1;
+    while(n--){
+        ll t, x, y; cin>>t >>x >>y;
+        ll dis = abs(a-x) + abs(b-y);
+        ll temp = t;
+        t = t-time;
+        if(dis>t) f=0;
+        else if((t-dis)%2) f=0;
+        else a=x, b=y, time=temp;
+    }
+    if(f) cout<<"Yes\n";
+    else cout<<"No\n";
+}
+
+
+int main(){
+
+#ifndef ONLINE_JUDGE
+    freopen("in.txt", "r", stdin);
+    freopen("out.txt", "w", stdout);
+#endif
+
+    optimize();
+
+    ll t=1;
+    // cin>>t;
+    while(t--)
+        solve();
+}
