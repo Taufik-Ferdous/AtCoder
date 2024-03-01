@@ -1,0 +1,63 @@
+/**
+ *    Author: lulu (Tasmir_)
+ *    Created: 01-March-2024  09:22:20
+**/
+#include<bits/stdc++.h>
+using namespace std;
+
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+#define ll long long
+
+//====================================
+
+void solve(){
+    ll n; cin>>n;
+    string dum_s; cin>>dum_s;
+    string a="", b="";
+
+    for(ll i=0; i<n; ++i) a+=dum_s[i];
+    for(ll i=n; i<2*n; ++i) b+=dum_s[i];
+
+    ll q; cin>>q;
+    bool f=0;
+    while(q--){
+        ll tsk, frm, to; cin>>tsk >>frm >>to;
+        if(tsk==1){
+            if(frm<=n && to<=n){
+                --frm, --to;
+                if(f) swap(b[frm], b[to]);
+                else swap(a[frm], a[to]);
+            }
+            else if(frm<=n && to>n){
+                --frm, --to;
+                if(f) swap(a[to-n], b[frm]);
+                else swap(a[frm], b[to-n]);
+            }
+            else if(frm>n && to>n){
+                --frm, --to;
+                if(f) swap(a[frm-n], a[to-n]);
+                else swap(b[frm-n], b[to-n]);
+            }
+        }
+        else f=!f;
+    }
+    if(!f) cout<<a <<b <<'\n';
+    else cout<<b <<a <<'\n';
+}
+
+
+int main(){
+
+#ifndef ONLINE_JUDGE
+    freopen("in.txt", "r", stdin);
+    freopen("out.txt", "w", stdout);
+#endif
+
+    optimize();
+
+    ll t=1;
+    // cin>>t;
+    while(t--)
+        solve();
+}
