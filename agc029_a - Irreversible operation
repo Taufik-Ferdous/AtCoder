@@ -1,0 +1,39 @@
+/**
+ *    Author: lulu (Tasmir_)
+ *    Created: 28-February-2024  21:02:25
+**/
+#include<bits/stdc++.h>
+using namespace std;
+
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+#define ll long long
+
+//====================================
+
+void solve(){
+    string s; cin>>s;
+    ll ans = 0;
+    ll count=0;
+    for(ll i=0; i<s.length(); ++i){
+        if(s[i]=='B') ++count;
+        else ans+=count;
+    }
+    cout<<ans <<'\n';
+}
+
+
+int main(){
+
+#ifndef ONLINE_JUDGE
+    freopen("in.txt", "r", stdin);
+    freopen("out.txt", "w", stdout);
+#endif
+
+    optimize();
+
+    ll t=1;
+    // cin>>t;
+    while(t--)
+        solve();
+}
